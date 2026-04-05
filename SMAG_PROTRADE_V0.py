@@ -4084,12 +4084,11 @@ def main():
                 elif "↓" in str(val):
                     return "color:#f87171;font-weight:600;"
                 return ""
-
             styled = (
                 dma_df.style
-                .applymap(style_rec, subset=["Recommendation"])
-                .applymap(style_trend, subset=["Trend"])
-                .applymap(style_car, subset=["CAR (10d)"])
+                .map(style_rec, subset=["Recommendation"])
+                .map(style_trend, subset=["Trend"])
+                .map(style_car, subset=["CAR (10d)"])
             )
 
             st.dataframe(styled, use_container_width=True, hide_index=True)
